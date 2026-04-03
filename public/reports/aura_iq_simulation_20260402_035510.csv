@@ -1,0 +1,102 @@
+Name,Description,Outlook Booked,WiFi Count,Tenant Complaint,Logic Action,Energy Reduction %,Hourly Savings SGD,Energy Saved kWh,Carbon Avoided Tonnes
+North Wing - Slot 1,Team collaboration area with dynamic usage,True,34,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+North Wing - Slot 2,Meeting scheduled in calendar but attendees not present,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+East Wing - Slot 3,Meeting scheduled in calendar but attendees not present,True,38,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Central Hub - Slot 4,Unscheduled visitors occupying the space,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Meeting Room 202 - Slot 5,Unscheduled visitors occupying the space,True,8,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Cafeteria - Slot 6,Executive meeting in progress,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Meeting Room 101 - Slot 7,Meeting scheduled in calendar but attendees not present,True,14,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Meeting Room 202 - Slot 8,Training session with full capacity expected,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+North Wing - Slot 9,Training session with full capacity expected,True,32,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 10,Training session with full capacity expected,True,56,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 11,Regular working hours with standard occupancy,True,46,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 12,Regular working hours with standard occupancy,True,42,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+South Wing - Slot 13,Post-meeting cleanup period,False,23,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+East Wing - Slot 14,Standard office space with scheduled occupancy,True,38,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Lobby Area - Slot 15,Meeting scheduled in calendar but attendees not present,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+West Wing - Slot 16,Unscheduled visitors occupying the space,True,18,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Conference Suite B - Slot 17,Post-meeting cleanup period,True,20,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Conference Suite A - Slot 18,Regular working hours with standard occupancy,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Lobby Area - Slot 19,Standard office space with scheduled occupancy,False,6,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Training Center - Slot 20,Off-peak hours with minimal activity,False,19,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Conference Suite A - Slot 21,Standard office space with scheduled occupancy,True,26,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+North Wing - Slot 22,Early morning setup before main occupancy,False,4,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Executive Floor - Slot 23,Off-peak hours with minimal activity,True,11,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 24,Training session with full capacity expected,True,41,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Conference Suite B - Slot 25,Early morning setup before main occupancy,True,22,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Hot Desk Area - Slot 26,Team collaboration area with dynamic usage,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Meeting Room 202 - Slot 27,Early morning setup before main occupancy,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Training Center - Slot 28,Unscheduled visitors occupying the space,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Conference Suite A - Slot 29,Early morning setup before main occupancy,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Conference Suite B - Slot 30,Standard office space with scheduled occupancy,True,20,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 31,Off-peak hours with minimal activity,True,47,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Hot Desk Area - Slot 32,Regular working hours with standard occupancy,True,22,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Hot Desk Area - Slot 33,Team collaboration area with dynamic usage,False,14,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Executive Floor - Slot 34,Executive meeting in progress,True,12,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+South Wing - Slot 35,Off-peak hours with minimal activity,True,29,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+South Wing - Slot 36,Early morning setup before main occupancy,False,18,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Central Hub - Slot 37,Off-peak hours with minimal activity,True,18,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Lobby Area - Slot 38,Standard office space with scheduled occupancy,True,9,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Central Hub - Slot 39,Team collaboration area with dynamic usage,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+West Wing - Slot 40,Post-meeting cleanup period,False,11,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+North Wing - Slot 41,Training session with full capacity expected,False,19,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Lobby Area - Slot 42,Off-peak hours with minimal activity,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Meeting Room 101 - Slot 43,Regular working hours with standard occupancy,True,12,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 44,Post-meeting cleanup period,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Cafeteria - Slot 45,Executive meeting in progress,True,83,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Central Hub - Slot 46,Unscheduled visitors occupying the space,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Open Plan - Slot 47,Team collaboration area with dynamic usage,False,55,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+West Wing - Slot 48,Standard office space with scheduled occupancy,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Meeting Room 202 - Slot 49,Standard office space with scheduled occupancy,True,19,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Executive Floor - Slot 50,Regular working hours with standard occupancy,True,9,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Lobby Area - Slot 51,Team collaboration area with dynamic usage,True,7,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Executive Floor - Slot 52,Off-peak hours with minimal activity,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Executive Floor - Slot 53,Executive meeting in progress,False,11,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Open Plan - Slot 54,Executive meeting in progress,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Executive Floor - Slot 55,Unscheduled visitors occupying the space,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Executive Floor - Slot 56,Standard office space with scheduled occupancy,True,15,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Central Hub - Slot 57,Training session with full capacity expected,True,19,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 58,Early morning setup before main occupancy,False,22,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Meeting Room 202 - Slot 59,Training session with full capacity expected,True,18,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+East Wing - Slot 60,Early morning setup before main occupancy,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Executive Floor - Slot 61,Off-peak hours with minimal activity,False,13,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Cafeteria - Slot 62,Unscheduled visitors occupying the space,True,62,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Training Center - Slot 63,Off-peak hours with minimal activity,True,44,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Conference Suite B - Slot 64,Regular working hours with standard occupancy,False,17,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Cafeteria - Slot 65,Training session with full capacity expected,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Cafeteria - Slot 66,Off-peak hours with minimal activity,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+East Wing - Slot 67,Training session with full capacity expected,True,32,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+West Wing - Slot 68,Early morning setup before main occupancy,True,22,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Central Hub - Slot 69,Off-peak hours with minimal activity,False,11,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Meeting Room 101 - Slot 70,Team collaboration area with dynamic usage,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+North Wing - Slot 71,Standard office space with scheduled occupancy,False,19,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Training Center - Slot 72,Post-meeting cleanup period,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+South Wing - Slot 73,Post-meeting cleanup period,True,33,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Hot Desk Area - Slot 74,Team collaboration area with dynamic usage,True,28,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Open Plan - Slot 75,Executive meeting in progress,True,43,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Conference Suite B - Slot 76,Training session with full capacity expected,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+North Wing - Slot 77,Team collaboration area with dynamic usage,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+West Wing - Slot 78,Executive meeting in progress,True,21,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+South Wing - Slot 79,Early morning setup before main occupancy,True,29,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+East Wing - Slot 80,Meeting scheduled in calendar but attendees not present,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Meeting Room 202 - Slot 81,Executive meeting in progress,False,7,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+South Wing - Slot 82,Post-meeting cleanup period,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+South Wing - Slot 83,Team collaboration area with dynamic usage,False,11,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Meeting Room 101 - Slot 84,Standard office space with scheduled occupancy,True,13,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Conference Suite A - Slot 85,Training session with full capacity expected,True,15,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Meeting Room 101 - Slot 86,Team collaboration area with dynamic usage,True,10,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+South Wing - Slot 87,Executive meeting in progress,False,5,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Conference Suite A - Slot 88,Off-peak hours with minimal activity,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+North Wing - Slot 89,Executive meeting in progress,False,26,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+North Wing - Slot 90,Meeting scheduled in calendar but attendees not present,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
+Conference Suite A - Slot 91,Regular working hours with standard occupancy,False,20,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Hot Desk Area - Slot 92,Standard office space with scheduled occupancy,False,15,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Conference Suite B - Slot 93,Early morning setup before main occupancy,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Training Center - Slot 94,Off-peak hours with minimal activity,True,29,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+North Wing - Slot 95,Team collaboration area with dynamic usage,True,30,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Central Hub - Slot 96,Early morning setup before main occupancy,True,21,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Lobby Area - Slot 97,Post-meeting cleanup period,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Lobby Area - Slot 98,Meeting scheduled in calendar but attendees not present,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Executive Floor - Slot 99,Early morning setup before main occupancy,True,8,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Cafeteria - Slot 100,Regular working hours with standard occupancy,False,73,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+TOTAL,,,,,,,405.0,,0.54

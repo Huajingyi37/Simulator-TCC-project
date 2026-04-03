@@ -1,0 +1,22 @@
+Name,Description,Outlook Booked,WiFi Count,Tenant Complaint,Logic Action,Energy Reduction %,Hourly Savings SGD,Energy Saved kWh,Carbon Avoided Tonnes
+Random Scenario 1,Auto-generated scenario 1 with random parameters.,False,0,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 2,Auto-generated scenario 2 with random parameters.,True,25,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 3,Auto-generated scenario 3 with random parameters.,True,50,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 4,Auto-generated scenario 4 with random parameters.,False,7,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 5,Auto-generated scenario 5 with random parameters.,False,22,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 6,Auto-generated scenario 6 with random parameters.,True,47,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 7,Auto-generated scenario 7 with random parameters.,True,6,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 8,Auto-generated scenario 8 with random parameters.,False,31,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 9,Auto-generated scenario 9 with random parameters.,False,15,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Random Scenario 10,Auto-generated scenario 10 with random parameters.,False,29,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 11,Auto-generated scenario 11 with random parameters.,False,33,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Random Scenario 12,Auto-generated scenario 12 with random parameters.,False,29,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Random Scenario 13,Auto-generated scenario 13 with random parameters.,False,17,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+Random Scenario 14,Auto-generated scenario 14 with random parameters.,True,21,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Random Scenario 15,Auto-generated scenario 15 with random parameters.,True,15,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 16,Auto-generated scenario 16 with random parameters.,False,31,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 17,Auto-generated scenario 17 with random parameters.,True,27,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Random Scenario 18,Auto-generated scenario 18 with random parameters.,True,29,False,Maintain Normal Comfort,0,0.0,0.0,0.0
+Random Scenario 19,Auto-generated scenario 19 with random parameters.,False,38,True,TENANT OVERRIDE -> Reverting to Max Comfort,0,0.0,0.0,0.0
+Random Scenario 20,Auto-generated scenario 20 with random parameters.,False,26,False,UNSCHEDULED OCCUPANCY -> Adjusting for Comfort,19,3.0,10.0,0.004
+TOTAL,,,,,,,15.0,,0.02
