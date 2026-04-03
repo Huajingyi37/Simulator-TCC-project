@@ -4,7 +4,7 @@ North Wing - Slot 2,Meeting scheduled in calendar but attendees not present,Fals
 East Wing - Slot 3,Meeting scheduled in calendar but attendees not present,True,38,False,Maintain Normal Comfort,0,0.0,0.0,0.0
 Central Hub - Slot 4,Unscheduled visitors occupying the space,False,0,False,Eco-Mode (No Booking),60,9.0,30.0,0.012
 Meeting Room 202 - Slot 5,Unscheduled visitors occupying the space,True,8,False,Maintain Normal Comfort,0,0.0,0.0,0.0
-Cafeteria - Slot 6,Executive meeting in progress,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
+Cafeteria - Sloat 6,Executive meeting in progress,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
 Meeting Room 101 - Slot 7,Meeting scheduled in calendar but attendees not present,True,14,False,Maintain Normal Comfort,0,0.0,0.0,0.0
 Meeting Room 202 - Slot 8,Training session with full capacity expected,True,0,False,GHOST MEETING DETECTED -> Entering Deep Save,80,12.0,40.0,0.016
 North Wing - Slot 9,Training session with full capacity expected,True,32,False,Maintain Normal Comfort,0,0.0,0.0,0.0

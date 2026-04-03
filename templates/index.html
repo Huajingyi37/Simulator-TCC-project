@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aura-IQ | Advanced Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { margin: 0; font-family: 'Inter', sans-serif; background: #0b101e; color: #94a3b8; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Sidebar */
+        .sidebar { width: 240px; background: #131a2b; padding: 25px 20px; display: flex; flex-direction: column; z-index: 10; border-right: 1px solid #1e293b; }
+        .brand { font-size: 22px; color: #f8fafc; font-weight: 800; margin-bottom: 40px; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        .brand span { background: #34d399; color: #0b101e; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+        .nav-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 6px; color: #64748b; cursor: pointer; transition: all 0.2s; font-size: 14px; font-weight: 600; }
+        .nav-item:hover { background: #1e293b; color: #f8fafc; }
+        .nav-item.active { background: #1e293b; color: #f8fafc; border-left: 3px solid #34d399; }
+        
+        /* Main Content */
+        .main-content { flex: 1; padding: 35px 45px; overflow-y: auto; background: radial-gradient(circle at top right, #172136, #0b101e); position: relative; }
+        .header-title { color: #f8fafc; font-size: 32px; margin-bottom: 5px; font-weight: 400; letter-spacing: -0.5px; }
+        .sub-header { color: #3b82f6; font-size: 14px; margin-bottom: 35px; letter-spacing: 0.5px; font-weight: 600; text-transform: uppercase; }
+        
+        .section { display: none; animation: fadeIn 0.4s; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Grids & Cards */
+        .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 25px; }
+        .floorplan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; }
+        
+        .card { background: #131a2b; border-radius: 12px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #1e293b; }
+        .card-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; color: #64748b; }
+        .metric-large { font-size: 38px; color: #f8fafc; font-weight: 600; margin-bottom: 5px; letter-spacing: -1px; }
+        .metric-large span { font-size: 16px; font-weight: 400; color: #94a3b8; }
+        
+        /* Charts & Elements */
+        .chart-container { position: relative; height: 260px; width: 100%; }
+        .gauge-container { position: relative; height: 180px; width: 100%; display: flex; justify-content: center; align-items: flex-end; }
+        .gauge-text { position: absolute; bottom: 10px; text-align: center; width: 100%; font-size: 24px; color: white; font-weight: bold; }
+        
+        /* Tables & Buttons */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th, td { padding: 14px 10px; border-bottom: 1px solid #1e293b; text-align: left; }
+        th { color: #64748b; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
+        .btn { padding: 8px 14px; border: none; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; color: #0b101e; margin-right: 5px; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.8; }
+        .btn-blue { background: #3b82f6; } .btn-yellow { background: #fbbc04; } .btn-green { background: #34d399; } .btn-danger { background: #f43f5e; color: white; padding: 12px 24px; font-size: 14px; }
+        
+        /* Micro-Zone Cards */
+        .zone-card { background: #0f1423; padding: 18px; border-radius: 8px; box-shadow: inset 0 0 0 1px #1e293b; transition: all 0.3s; }
+        .zone-title { color: #f8fafc; font-weight: 600; font-size: 15px; margin-bottom: 12px; }
+        .zone-stat { font-size: 13px; margin-bottom: 6px; color: #94a3b8; }
+        .zone-stat span { color: #f8fafc; font-weight: 600; }
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 800; color: #0b101e; margin-top: 10px; transition: all 0.3s; text-transform: uppercase; }
+        
+        /* Logs & Toast */
+        .log-box { background: #0b101e; border-radius: 8px; padding: 20px; height: 350px; overflow-y: auto; font-family: monospace; font-size: 13px; border: 1px solid #1e293b; }
+        .log-entry { margin-bottom: 12px; color: #cbd5e1; border-bottom: 1px dashed #1e293b; padding-bottom: 8px; line-height: 1.5; }
+        .toast { position: absolute; top: 30px; right: 40px; background: #3b82f6; color: white; padding: 15px 25px; border-radius: 8px; font-weight: 600; font-size: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateY(-20px); pointer-events: none; z-index: 100; }
+        .toast.show { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="brand">AURA-IQ <span>SIMULATOR</span></div>
+        <div class="nav-item active" data-section="dashboard">Enterprise Dashboard</div>
+        <div class="nav-item" data-section="zone">Micro-Zone Mapping</div>
+        <div class="nav-item" data-section="command">⚙️ Command Center</div>
+        <div class="nav-item" data-section="logs">System Logs</div>
+    </div>
+
+    <div class="main-content">
+        <div id="toast" class="toast">Command Sent Successfully!</div>
+        <div class="header-title" id="sectionTitle">Enterprise Dashboard</div>
+        <div class="sub-header" id="sectionSubtitle">Dynamic Data Simulator • Live Inference</div>
+
+        <div id="dashboard" class="section active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-title">Daily Energy Cost</div>
+                    <div class="metric-large">${{ "%.2f"|format(ai_actual_cost) }} <span>SGD</span></div>
+                    <div style="color: #34d399; font-size: 14px; font-weight: 600;">↓ ${{ "%.2f"|format(sim.total_savings_sgd) }} Saved vs Static BMS</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-title">ESG Efficiency Meter</div>
+                    <div class="gauge-container">
+                        <canvas id="gaugeChart"></canvas>
+                        <div class="gauge-text">{{ sim.efficiency_score }}%<br><span style="font-size:12px; font-weight:normal; color:#94a3b8;">Optimization Score</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Active HVAC Sub-Systems</div>
+                    <div class="chart-container" style="height: 180px;">
+                        <canvas id="hvacBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Energy Balance (24-Hour Cycle)</div>
+                <div class="chart-container"><canvas id="loadChart"></canvas></div>
+            </div>
+        </div>
+
+        <div id="zone" class="section">
+            <div class="card">
+                <div class="card-title">Live Floorplan Cluster Status</div>
+                <p style="font-size: 13px; color: #94a3b8;">Current ML Ratio Tuning: <strong style="color: #f8fafc;">{{ "%.2f"|format(sim.ml_device_ratio) }} Devices/Human</strong></p>
+                <div class="floorplan-grid" id="floorplanGrid">
+                    {% for z in sim.live_zones %}
+                    <div class='zone-card' style='border-top: 4px solid {{ z.color }}' id='map-{{ z.id }}'>
+                        <div class='zone-title'>{{ z.name }}</div>
+                        <div class='zone-stat'>Wi-Fi Devices: <span>{{ z.devices }}</span></div>
+                        <div class='zone-stat'>Est. Humans: <span>{{ (z.devices / sim.ml_device_ratio)|int }}</span></div>
+                        <div class='status-badge' style='background:{{ z.color }}'>{{ z.status }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div id="command" class="section">
+            <div class="dashboard-grid" style="grid-template-columns: 1fr 2fr;">
+                <div class="card">
+                    <div class="card-title">Global Override</div>
+                    <p style="font-size: 13px; color: #94a3b8; margin-bottom: 25px; line-height: 1.5;">Completely disengage Aura-IQ and return to static BMS scheduling.</p>
+                    <button class="btn btn-danger" id="globalToggle" onclick="toggleGlobalAI()">EMERGENCY: DISABLE AURA-IQ</button>
+                    <p id="globalStatus" style="color: #34d399; font-weight: bold; margin-top: 20px;">Status: AI Control is ACTIVE</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Zone Actuation Control</div>
+                    <table>
+                        <tr><th>Zone ID</th><th>Current AI State</th><th>Manual Override (BACnet)</th></tr>
+                        {% for z in sim.live_zones %}
+                        <tr>
+                            <td style='color: white; font-weight: bold;'>{{ z.name }}</td>
+                            <td><span id='cmd-status-{{ z.id }}' class='status-badge' style='background:{{ z.color }}'>{{ z.status }}</span></td>
+                            <td>
+                                <button class='btn btn-blue' onclick="overrideZone('{{ z.id }}', '{{ z.name }}', 'Comfort Mode', '#3b82f6')">Comfort</button> 
+                                <button class='btn btn-yellow' onclick="overrideZone('{{ z.id }}', '{{ z.name }}', 'Eco-Mode', '#fbbc04')">Eco</button> 
+                                <button class='btn btn-green' onclick="overrideZone('{{ z.id }}', '{{ z.name }}', 'Deep Save', '#34d399')">Off</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="logs" class="section">
+            <div class="card">
+                <div class="card-title">System Telemetry & Events</div>
+                <div class="log-box" id="logBox">
+                    {% for log in sim.feedback_logs|reverse %}
+                    <div class='log-entry'>{{ log }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Safely load Python data into JavaScript
+        const chartLabels = {{ chart_labels | safe }};
+        const chartAiData = {{ chart_ai_data | safe }};
+        const chartBaselineData = {{ chart_baseline_data | safe }};
+        const efficiencyScore = {{ sim.efficiency_score }};
+
+        Chart.defaults.color = '#64748b';
+        Chart.defaults.font.family = 'Inter';
+        Chart.defaults.font.weight = '600';
+        
+        // Area Chart
+        const ctxLoad = document.getElementById('loadChart').getContext('2d');
+        let gradientAI = ctxLoad.createLinearGradient(0, 0, 0, 400);
+        gradientAI.addColorStop(0, 'rgba(52, 211, 153, 0.4)'); 
+        gradientAI.addColorStop(1, 'rgba(52, 211, 153, 0.0)'); 
+
+        new Chart(ctxLoad, {
+            type: 'line',
+            data: {
+                labels: chartLabels,
+                datasets: [
+                    { label: 'Aura-IQ Optimized Demand (kW)', data: chartAiData, borderColor: '#34d399', backgroundColor: gradientAI, fill: true, tension: 0.4, pointRadius: 0, borderWidth: 3 },
+                    { label: 'Static BMS Baseline (kW)', data: chartBaselineData, borderColor: '#3b82f6', borderDash: [5,5], fill: false, tension: 0.4, pointRadius: 0, borderWidth: 2 }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', align: 'end' } }, scales: { y: { beginAtZero: true, grid: { color: '#1e293b' } }, x: { grid: { display: false } } } }
+        });
+
+        // Gauge Chart
+        new Chart(document.getElementById('gaugeChart'), {
+            type: 'doughnut',
+            data: { labels: ['Efficiency', 'Waste'], datasets: [{ data: [efficiencyScore, 100 - efficiencyScore], backgroundColor: ['#34d399', '#1e293b'], borderWidth: 0, cutout: '80%' }] },
+            options: { responsive: true, maintainAspectRatio: false, circumference: 180, rotation: 270, plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+        });
+
+        // Horizontal Bar
+        new Chart(document.getElementById('hvacBarChart'), {
+            type: 'bar',
+            data: { labels: ['Chillers', 'VAV Boxes', 'Exhaust', 'Pumps'], datasets: [{ data: [75, 42, 20, 35], backgroundColor: ['#8b5cf6', '#3b82f6', '#f59e0b', '#ec4899'], borderRadius: 4, barThickness: 15 }] },
+            options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { display: false, max: 100 }, y: { grid: { display: false } } } }
+        });
+
+        // Tab Navigation
+        document.querySelectorAll('.nav-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const selected = item.getAttribute('data-section');
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+                document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+                document.getElementById(selected).classList.add('active');
+
+                const titles = { dashboard: 'Enterprise Dashboard', zone: 'Micro-Zone Mapping', command: 'Command Center', logs: 'System Logs' };
+                document.getElementById('sectionTitle').textContent = titles[selected];
+            });
+        });
+
+        // Interactions
+        function showToast(message, color = '#3b82f6') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.background = color;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function overrideZone(id, name, newStatus, color) {
+            document.getElementById(`cmd-status-${id}`).textContent = "OVERRIDE: " + newStatus;
+            document.getElementById(`cmd-status-${id}`).style.background = color;
+            document.getElementById(`cmd-status-${id}`).style.color = (color === '#fbbc04') ? '#0b101e' : 'white';
+
+            document.getElementById(`map-${id}`).style.borderTopColor = color;
+            document.getElementById(`map-${id}`).querySelector('.status-badge').textContent = "OVERRIDE: " + newStatus;
+            document.getElementById(`map-${id}`).querySelector('.status-badge').style.background = color;
+
+            const time = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit'});
+            document.getElementById('logBox').innerHTML = `<div class='log-entry' style='color: #fbbc04;'>⚠️ [${time}] Zone '${name}': BME Manual Override initiated. Forcing ${newStatus} via BACnet.</div>` + document.getElementById('logBox').innerHTML;
+            showToast(`Sending command to ${name}... Success!`);
+        }
+
+        let aiActive = true;
+        function toggleGlobalAI() {
+            const btn = document.getElementById('globalToggle');
+            const status = document.getElementById('globalStatus');
+            aiActive = !aiActive;
+            if(aiActive) {
+                btn.textContent = "EMERGENCY: DISABLE AURA-IQ";
+                btn.className = "btn btn-danger";
+                status.textContent = "Status: AI Control is ACTIVE";
+                status.style.color = "#34d399";
+                showToast("Aura-IQ System Reactivated.", "#3b82f6");
+            } else {
+                btn.textContent = "RE-ENABLE AURA-IQ";
+                btn.className = "btn btn-blue";
+                status.textContent = "Status: AI is DISABLED. Reverting to Static Schedule.";
+                status.style.color = "#f43f5e";
+                showToast("WARNING: AI Disabled.", "#f43f5e");
+            }
+        }
+    </script>
+</body>
+</html>
